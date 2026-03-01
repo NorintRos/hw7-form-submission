@@ -36,8 +36,15 @@ app.post('/register', (req, res) => {
         }
 
         const uploadedFile = files.profilePic[0];
+
+        // Validate: check if the file is an image
+        const allowedTypes = ['image/jpeg', 'image/png'];
+        if (!allowedTypes.includes(uploadedFile.headers['content-type'])) {
+            return res.status(400).send('Only .jpg, .jpeg, and .png files are allowed.');
+        }
+
         const oldPath = uploadedFile.path;
-        const fileName = uploadedFile.originalFilename;
+        const fileName = Date.now() + '-' + uploadedFile.originalFilename;
         const newPath = path.join(__dirname, 'public', 'uploads', fileName);
 
         // Move uploaded file from temp location to ./public/uploads
@@ -59,5 +66,5 @@ app.post('/register', (req, res) => {
 
 // Start server on port 3000
 app.listen(3001, () => {
-    console.log('Server is running on http://localhost:3001');
+    console.log('Server is running on http://localhost:3000');
 });
