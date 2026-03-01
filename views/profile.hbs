@@ -1,1 +1,31 @@
 <!-- Profile View: Success page after registration -->
+<div class="w-full max-w-md mx-auto p-6">
+    <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+
+        <!-- Profile Picture -->
+        <img src="{{image}}" alt="Profile Picture"
+            class="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-blue-500" />
+
+        <!-- Welcome Message -->
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Welcome, {{name}}!</h1>
+        <p class="text-gray-500 mb-6">Your registration was successful.</p>
+
+        <!-- Registration Details -->
+        <div class="text-left space-y-3 bg-gray-50 rounded-lg p-4">
+            <div>
+                <span class="text-sm font-medium text-gray-500">Email</span>
+                <p class="text-gray-800">{{email}}</p>
+            </div>
+            <div>
+                <span class="text-sm font-medium text-gray-500">Course Track</span>
+                <p class="text-gray-800">{{course}}</p>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <a href="/register" class="inline-block mt-6 text-blue-600 hover:underline text-sm">
+            &larr; Register another
+        </a>
+
+    </div>
+</div>
